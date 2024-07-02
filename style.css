@@ -1,0 +1,36 @@
+.container {
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    box-sizing: border-box;
+    height: 250px;
+}
+
+.buttons {
+    border: 2px solid black;
+    flex-basis: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.display {
+    border: 2px solid blue;
+    flex-basis: 25%;
+}
+
+.btn {
+    border: 2px solid green;
+    flex-basis: 40px;
+    flex-grow: 1;
+}
+
+#equal {
+    flex-grow: 14;
+}
