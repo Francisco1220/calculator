@@ -33,4 +33,9 @@ let operate = function(operator, first, second) {
     }
 }
 
-console.log(operate("-", 5, 3));
+// Adds classes to each button
+const btn = document.querySelectorAll("button");
+for(let i = 0; i < btn.length; i++) {
+    btn[i].setAttribute("class", "btn");
+}
+
