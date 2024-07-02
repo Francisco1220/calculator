@@ -14,7 +14,7 @@
     flex-basis: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 3px;
+    gap: 5px;
 }
 
 body {
@@ -25,17 +25,19 @@ body {
 
 .display {
     margin: 2px;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     flex-basis: 25%;
     background-color: white;
     border-radius: 3px;
+    font-size: 30px;
 }
 
 .btn {
-    border-radius: 20px;
+    border-radius: 30px;
     flex-basis: 50px;
     flex-grow: 1;
     border: none;
+    font-size: 20px;
 }
 
 #equal {

@@ -46,7 +46,7 @@ const changeColourBtn = function() {
         if (btn[i].innerHTML === "AC" ||
             btn[i].innerHTML === "+/-" ||
             btn[i].innerHTML === "%" ||
-            btn[i].innerHTML === "X" ||
+            btn[i].innerHTML === "x" ||
             btn[i].innerHTML === "/" ||
             btn[i].innerHTML === "+" ||
             btn[i].innerHTML === "-") {
