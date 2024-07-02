@@ -1,13 +1,13 @@
 .container {
     display: flex;
     flex-direction: column;
-    width: 240px;
+    width: 270px;
     box-sizing: border-box;
     height: 420px;
     padding: 2px;
     background-color: rgb(175, 173, 80);
-    border-radius: 5px;
-    padding: 5px;
+    border-radius: 8px;
+    padding: 8px;
 }
 
 .buttons {
@@ -26,18 +26,18 @@ body {
 .display {
     margin: 2px;
     margin-bottom: 4px;
-    flex-basis: 30%;
+    flex-basis: 25%;
     background-color: white;
     border-radius: 3px;
 }
 
 .btn {
     border-radius: 20px;
-    flex-basis: 45px;
+    flex-basis: 50px;
     flex-grow: 1;
     border: none;
 }
 
 #equal {
-    flex-grow: 14;
+    flex-grow: 7;
 }
