@@ -1,17 +1,18 @@
 .container {
-    border: 2px solid red;
     display: flex;
     flex-direction: column;
     width: 180px;
     box-sizing: border-box;
     height: 250px;
+    padding: 2px;
+    background-color: rgb(26, 26, 26);
 }
 
 .buttons {
-    border: 2px solid black;
     flex-basis: 100%;
     display: flex;
     flex-wrap: wrap;
+    gap: 3px;
 }
 
 body {
@@ -21,14 +22,17 @@ body {
 }
 
 .display {
-    border: 2px solid blue;
+    margin: 2px;
+    margin-bottom: 4px;
     flex-basis: 25%;
+    background-color: white;
 }
 
 .btn {
-    border: 2px solid green;
+    border-radius: 50px;
     flex-basis: 40px;
     flex-grow: 1;
+    background-color: rgb(140, 140, 140);
 }
 
 #equal {
