@@ -39,8 +39,6 @@ for(let i = 0; i < btn.length; i++) {
     btn[i].setAttribute("class", "btn");
 }
 
-console.log(btn);
-
 const changeColourBtn = function() {
     for(let i = 0; i < btn.length; i++) {
         if (btn[i].innerHTML === "AC" ||
@@ -50,7 +48,7 @@ const changeColourBtn = function() {
             btn[i].innerHTML === "/" ||
             btn[i].innerHTML === "+" ||
             btn[i].innerHTML === "-") {
-            btn[i].style.backgroundColor = "rgb(117, 117, 163)";
+            btn[i].style.backgroundColor = "rgb(255, 213, 153)";
             }
     }
 }
