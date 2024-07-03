@@ -68,15 +68,15 @@ for (let i = 0; i < btn.length; i++) {
             btn[i].innerHTML === "/" ||
             btn[i].innerHTML === "x" ||
             btn[i].innerHTML === "-" ||
-            btn[i].innerHTML === "+" ||
-            btn[i].innerHTML === "AC" ||
-            btn[i].innerHTML === "+/-" ||
-            btn[i].innerHTML === "=") {
+            btn[i].innerHTML === "+") {
             displayTxt.innerHTML += "";
             // firstVal stores first value of calculation
+            // Note: parseInt is not return a decimal number. Only an integer. Fix later
             let firstVal = parseInt(displayTxt.innerHTML);
+            // operator stores operation called
+            let operator = e.target.innerHTML;
+            console.log(operator);
             console.log(firstVal);
-            return firstVal
         } else {
             displayTxt.innerHTML += e.target.innerHTML;
         }
