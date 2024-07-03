@@ -68,8 +68,15 @@ for (let i = 0; i < btn.length; i++) {
             btn[i].innerHTML === "/" ||
             btn[i].innerHTML === "x" ||
             btn[i].innerHTML === "-" ||
-            btn[i].innerHTML === "+") {
-            displayTxt.innerHTML += ""
+            btn[i].innerHTML === "+" ||
+            btn[i].innerHTML === "AC" ||
+            btn[i].innerHTML === "+/-" ||
+            btn[i].innerHTML === "=") {
+            displayTxt.innerHTML += "";
+            // firstVal stores first value of calculation
+            let firstVal = parseInt(displayTxt.innerHTML);
+            console.log(firstVal);
+            return firstVal
         } else {
             displayTxt.innerHTML += e.target.innerHTML;
         }
