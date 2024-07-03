@@ -50,7 +50,7 @@ const changeColourBtn = function() {
             btn[i].innerHTML === "/" ||
             btn[i].innerHTML === "+" ||
             btn[i].innerHTML === "-") {
-                btn[i].style.backgroundColor = "orange";
+            btn[i].style.backgroundColor = "rgb(117, 117, 163)";
             }
     }
 }
