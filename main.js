@@ -61,15 +61,17 @@ const displayTxt = document.querySelector(".display")
 let equalBtn = document.querySelector("#equal");
 let equalCounter = 0;
 
-equalBtn.addEventListener("click", () => {
-    equalCounter++;
-    console.log(equalCounter);
-});
-
 // updates text on display screen
 for (let i = 0; i < btn.length; i++) {
     btn[i].addEventListener("click", (e) => {
-        displayTxt.innerHTML += e.target.innerHTML
+        if (btn[i].innerHTML === "%" ||
+            btn[i].innerHTML === "/" ||
+            btn[i].innerHTML === "x" ||
+            btn[i].innerHTML === "-" ||
+            btn[i].innerHTML === "+") {
+            displayTxt.innerHTML += ""
+        } else {
+            displayTxt.innerHTML += e.target.innerHTML;
+        }
     });
-    
 }
