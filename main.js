@@ -54,3 +54,22 @@ const changeColourBtn = function() {
 }
 
 changeColourBtn ();
+
+const displayTxt = document.querySelector(".display")
+
+// checks if equalSign is clicked, and increments accordingly
+let equalBtn = document.querySelector("#equal");
+let equalCounter = 0;
+
+equalBtn.addEventListener("click", () => {
+    equalCounter++;
+    console.log(equalCounter);
+});
+
+// updates text on display screen
+for (let i = 0; i < btn.length; i++) {
+    btn[i].addEventListener("click", (e) => {
+        displayTxt.innerHTML += e.target.innerHTML
+    });
+    
+}
