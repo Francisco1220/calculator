@@ -61,7 +61,7 @@ const displayTxt = document.querySelector(".display")
 let equalBtn = document.querySelector("#equal");
 let equalCounter = 0;
 
-// updates text on display screen
+/* updates text on display screen
 for (let i = 0; i < btn.length; i++) {
     btn[i].addEventListener("click", (e) => {
         if (btn[i].innerHTML === "%" ||
@@ -70,15 +70,55 @@ for (let i = 0; i < btn.length; i++) {
             btn[i].innerHTML === "-" ||
             btn[i].innerHTML === "+") {
             displayTxt.innerHTML += "";
-            // firstVal stores first value of calculation
-            // Note: parseInt is not return a decimal number. Only an integer. Fix later
+            // Note: parseInt is not returning a decimal number. Only an integer. Fix later
             let firstVal = parseInt(displayTxt.innerHTML);
-            // operator stores operation called
             let operator = e.target.innerHTML;
             console.log(operator);
             console.log(firstVal);
         } else {
             displayTxt.innerHTML += e.target.innerHTML;
         }
+    });
+} */
+
+let j = 0;
+let operator;
+let firstVal;
+let secondVal;
+for (let i = 0; i < btn.length; i++) {
+    btn[i].addEventListener("click", (e) => {
+        if (btn[i].innerHTML !== "%" &&
+            btn[i].innerHTML !== "/" &&
+            btn[i].innerHTML !== "x" &&
+            btn[i].innerHTML !== "-" &&
+            btn[i].innerHTML !== "+" &&
+            btn[i].innerHTML !== "AC" &&
+            btn[i].innerHTML !== "+/-") {
+                displayTxt.innerHTML += e.target.innerHTML;
+        } else if (btn[i].innerHTML === "%" ||
+                   btn[i].innerHTML === "/" ||
+                   btn[i].innerHTML === "x" ||
+                   btn[i].innerHTML === "-" ||
+                   btn[i].innerHTML === "+" ||
+                   btn[i].innerHTML === "AC"||
+                   btn[i].innerHTML === "+/-") {
+            j++;
+              if (j === 1) {
+                // Note: parseInt is not returning a decimal number. Only an integer. Fix later
+                firstVal = parseInt(displayTxt.innerHTML);
+                displayTxt.innerHTML = "";
+                operator = e.target.innerHTML;
+                console.log(operator);
+                console.log(firstVal);
+              } else if (j === 2) {
+                secondVal = parseInt(displayTxt.innerHTML);
+                displayTxt.innerHTML = "";
+                console.log(secondVal);
+                j = 0;
+                result = operate(operator, firstVal, secondVal);
+                displayTxt.innerHTML = `${result}`;
+                firstVal = result;
+              }
+           }
     });
 }
