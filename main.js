@@ -51,7 +51,7 @@ for(let i = 0; i < btn.length; i++) {
             btn[i].setAttribute("class", "btn operatorBtn");
         }
     if (btn[i].innerHTML === "=") {
-        btn[i].setAttribute("id", "equal");
+        btn[i].setAttribute("id", "equalBtn");
     }
     if (btn[i].innerHTML === "AC") {
         btn[i].setAttribute("id", "clearBtn");
@@ -76,8 +76,6 @@ for(let i = 0; i < btn.length; i++) {
     }
 }
 
-console.log(btn);
-
 const changeColourBtn = function() {
     for(let i = 0; i < btn.length; i++) {
         if (btn[i].innerHTML === "AC" ||
@@ -94,8 +92,55 @@ const changeColourBtn = function() {
 
 const displayTxt = document.querySelector(".display");
 
+const digitBtn = document.querySelectorAll(".numBtn");
+const operatorBtn = document.querySelectorAll(".operatorBtn");
 
+let j = 0;
+let operator;
+let firstVal;
+let secondVal;
+let n = 0;
 
+let operatorBtnClick = () => {
+    for (let i = 0; i < operatorBtn.length; i++) {
+        operatorBtn[i].addEventListener("click", () => {
+            operator = operatorBtn[i].innerHTML;
+            j++;
+            if (j === 1) {
+                firstVal = parseInt(displayTxt.innerHTML);
+                n++;
+            } else if (j === 2) {
+                secondVal = parseInt(displayTxt.innerHTML);
+                result = operate(operator, firstVal, secondVal);
+                displayTxt.innerHTML = result;
+                n++;
+            } else if (j === 3) {
+                firstVal = result;
+                secondVal = parseInt(displayTxt.innerHTML);
+                result = operate(operator, firstVal, secondVal);
+                displayTxt.innerHTML = result;
+                j--;
+                n++;
+            }
+        });
+    }
+}
 
+let digitBtnClick = () => {
+    for (let i = 0; i < digitBtn.length; i++) {
+        digitBtn[i].addEventListener("click", () => {
+            if (n === 1) {
+                displayTxt.innerHTML = "";
+                displayTxt.innerHTML += digitBtn[i].innerHTML;
+                n--;
+            } else {
+                displayTxt.innerHTML += digitBtn[i].innerHTML;
+            }
+        });
+    }
+}
+
+digitBtnClick();
+operatorBtnClick();
 
 
