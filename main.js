@@ -24,7 +24,7 @@ let operate = function(operator, first, second) {
     } else if (operator == "-") {
         let result = subtract(first, second);
         return result;
-    } else if (operator == "*") {
+    } else if (operator == "x") {
         let result = multiply(first, second);
         return result;
     } else {
@@ -100,12 +100,14 @@ let operator;
 let firstVal;
 let secondVal;
 let n = 0;
+let b = 0;
 
 let operatorBtnClick = () => {
     for (let i = 0; i < operatorBtn.length; i++) {
         operatorBtn[i].addEventListener("click", () => {
             operator = operatorBtn[i].innerHTML;
             j++;
+            console.log(j);
             if (j === 1) {
                 firstVal = parseInt(displayTxt.innerHTML);
                 n++;
@@ -115,16 +117,27 @@ let operatorBtnClick = () => {
                 displayTxt.innerHTML = result;
                 n++;
             } else if (j === 3) {
-                firstVal = result;
-                secondVal = parseInt(displayTxt.innerHTML);
-                result = operate(operator, firstVal, secondVal);
-                displayTxt.innerHTML = result;
-                j--;
-                n++;
+                if (b === 1) {
+                    firstVal = result;
+                    j--;
+                } else if (b === 2) {
+                    secondVal = parseInt(displayTxt.innerHTML);
+                    result = operate(operator, firstVal, secondVal);
+                    displayTxt.innerHTML = result;
+                    j--;
+                } else {
+                    firstVal = result;
+                    secondVal = parseInt(displayTxt.innerHTML);
+                    result = operate(operator, firstVal, secondVal);
+                    displayTxt.innerHTML = result;
+                    j--;
+                    n++;
+                }
             }
         });
     }
 }
+
 
 let digitBtnClick = () => {
     for (let i = 0; i < digitBtn.length; i++) {
@@ -133,6 +146,15 @@ let digitBtnClick = () => {
                 displayTxt.innerHTML = "";
                 displayTxt.innerHTML += digitBtn[i].innerHTML;
                 n--;
+            } else if (b === 1) {
+                displayTxt.innerHTML = "";
+                displayTxt.innerHTML += digitBtn[i].innerHTML;
+                b--;
+                j--;
+            } else if (b === 2) {
+                displayTxt.innerHTML = "";
+                displayTxt.innerHTML += digitBtn[i].innerHTML;
+                b = 0;
             } else {
                 displayTxt.innerHTML += digitBtn[i].innerHTML;
             }
@@ -140,7 +162,16 @@ let digitBtnClick = () => {
     }
 }
 
+let equalBtnClick = () => {
+    equalBtn.addEventListener("click", () => {
+        secondVal = parseInt(displayTxt.innerHTML);
+        result = operate(operator, firstVal, secondVal);
+        displayTxt.innerHTML = result;
+        b++;
+        j++;
+    });
+}
+
 digitBtnClick();
 operatorBtnClick();
-
-
+equalBtnClick ();
