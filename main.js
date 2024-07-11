@@ -107,7 +107,6 @@ let operatorBtnClick = () => {
         operatorBtn[i].addEventListener("click", () => {
             operator = operatorBtn[i].innerHTML;
             j++;
-            console.log(j);
             if (j === 1) {
                 firstVal = parseInt(displayTxt.innerHTML);
                 n++;
@@ -172,6 +171,20 @@ let equalBtnClick = () => {
     });
 }
 
+let clearBtnClick = () => {
+    clearBtn.addEventListener("click", () => {
+        displayTxt.innerHTML = "";
+        firstVal = 0;
+        secondVal = 0;
+        j = 0;
+        b = 0;
+        n = 0;
+        operator = 0;
+        result = 0;
+    });
+}
+
 digitBtnClick();
 operatorBtnClick();
 equalBtnClick ();
+clearBtnClick();
