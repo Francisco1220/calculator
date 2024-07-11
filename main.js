@@ -184,7 +184,16 @@ let clearBtnClick = () => {
     });
 }
 
+let negBtn = () => {
+    makeNegBtn.addEventListener("click", () => {
+        let currentNum = displayTxt.innerHTML;
+        let negSign = "-"
+        displayTxt.innerHTML = `${negSign}${currentNum}`
+    });
+}
+
 digitBtnClick();
 operatorBtnClick();
 equalBtnClick ();
 clearBtnClick();
+negBtn();
