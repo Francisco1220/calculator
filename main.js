@@ -103,6 +103,7 @@ let firstVal;
 let secondVal;
 let n = 0;
 let b = 0;
+let d = 0;
 let undefinedMessage = "Self-destruct sequence inititated";
 
 let operatorBtnClick = () => {
@@ -160,20 +161,24 @@ let digitBtnClick = () => {
                 displayTxt.innerHTML = "";
                 displayTxt.innerHTML += digitBtn[i].innerHTML;
                 n--;
+                d = 0;
             } else if (b === 1) {
                 displayTxt.innerHTML = "";
                 displayTxt.innerHTML += digitBtn[i].innerHTML;
                 b--;
                 j--;
+                d = 0;
             } else if (b === 2) {
                 displayTxt.innerHTML = "";
                 displayTxt.innerHTML += digitBtn[i].innerHTML;
                 b = 0;
+                d = 0;
             } else {
                 displayTxt.innerHTML += digitBtn[i].innerHTML;
             }
         });
     }
+    decBtn();
 }
 
 let equalBtnClick = () => {
@@ -198,6 +203,7 @@ let clearBtnClick = () => {
         j = 0;
         b = 0;
         n = 0;
+        d = 0;
         operator = 0;
         result = 0;
     });
@@ -211,7 +217,7 @@ let negBtn = () => {
     });
 }
 
-let toPercentage = () => {
+let toPercentageBtn = () => {
     makePerBtn.addEventListener("click", () => {
         let currentNum = parseFloat(displayTxt.innerHTML);
         console.log(currentNum);
@@ -220,9 +226,18 @@ let toPercentage = () => {
     });
 }
 
+let decBtn = () => {
+    makeDecBtn.addEventListener("click", () => {
+        d++;
+        if (d === 1) {
+            displayTxt.innerHTML += ".";
+        }
+    });
+}
+
 digitBtnClick();
 operatorBtnClick();
 equalBtnClick ();
 clearBtnClick();
 negBtn();
-toPercentage ();
+toPercentageBtn ();
