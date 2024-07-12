@@ -46,8 +46,7 @@ for(let i = 0; i < btn.length; i++) {
     if (btn[i].innerHTML === "+" ||
         btn[i].innerHTML === "-" ||
         btn[i].innerHTML === "/" ||
-        btn[i].innerHTML === "x" ||
-        btn[i].innerHTML === "%") {
+        btn[i].innerHTML === "x") {
             btn[i].setAttribute("class", "btn operatorBtn");
         }
     if (btn[i].innerHTML === "=") {
@@ -61,7 +60,10 @@ for(let i = 0; i < btn.length; i++) {
     }
     if (btn[i].innerHTML === ".") {
         btn[i].setAttribute("id", "makeDecBtn");
-    } 
+    }
+    if (btn[i].innerHTML === "%") {
+        btn[i].setAttribute("id", "makePerBtn" )
+    }
     if (btn[i].innerHTML === "0" ||
         btn[i].innerHTML === "1" ||
         btn[i].innerHTML === "2" ||
@@ -108,10 +110,10 @@ let operatorBtnClick = () => {
             operator = operatorBtn[i].innerHTML;
             j++;
             if (j === 1) {
-                firstVal = parseInt(displayTxt.innerHTML);
+                firstVal = parseFloat(displayTxt.innerHTML);
                 n++;
             } else if (j === 2) {
-                secondVal = parseInt(displayTxt.innerHTML);
+                secondVal = parseFloat(displayTxt.innerHTML);
                 result = operate(operator, firstVal, secondVal);
                 displayTxt.innerHTML = result;
                 n++;
@@ -120,13 +122,13 @@ let operatorBtnClick = () => {
                     firstVal = result;
                     j--;
                 } else if (b === 2) {
-                    secondVal = parseInt(displayTxt.innerHTML);
+                    secondVal = parseFloat(displayTxt.innerHTML);
                     result = operate(operator, firstVal, secondVal);
                     displayTxt.innerHTML = result;
                     j--;
                 } else {
                     firstVal = result;
-                    secondVal = parseInt(displayTxt.innerHTML);
+                    secondVal = parseFloat(displayTxt.innerHTML);
                     result = operate(operator, firstVal, secondVal);
                     displayTxt.innerHTML = result;
                     j--;
@@ -163,7 +165,7 @@ let digitBtnClick = () => {
 
 let equalBtnClick = () => {
     equalBtn.addEventListener("click", () => {
-        secondVal = parseInt(displayTxt.innerHTML);
+        secondVal = parseFloat(displayTxt.innerHTML);
         result = operate(operator, firstVal, secondVal);
         displayTxt.innerHTML = result;
         b++;
@@ -192,8 +194,19 @@ let negBtn = () => {
     });
 }
 
+// Working on percentage functionality
+let toPercentage = () => {
+    makePerBtn.addEventListener("click", () => {
+        let currentNum = parseFloat(displayTxt.innerHTML);
+        console.log(currentNum);
+        firstVal = currentNum / 100;
+        displayTxt.innerHTML = firstVal;
+    });
+}
+
 digitBtnClick();
 operatorBtnClick();
 equalBtnClick ();
 clearBtnClick();
 negBtn();
+toPercentage ();
