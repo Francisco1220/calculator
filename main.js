@@ -103,6 +103,7 @@ let firstVal;
 let secondVal;
 let n = 0;
 let b = 0;
+let undefinedMessage = "Self-destruct sequence inititated";
 
 let operatorBtnClick = () => {
     for (let i = 0; i < operatorBtn.length; i++) {
@@ -113,26 +114,38 @@ let operatorBtnClick = () => {
                 firstVal = parseFloat(displayTxt.innerHTML);
                 n++;
             } else if (j === 2) {
-                secondVal = parseFloat(displayTxt.innerHTML);
-                result = operate(operator, firstVal, secondVal);
-                displayTxt.innerHTML = result;
-                n++;
+                if (secondVal === 0 && operator === "/") {
+                    displayTxt.innerHTML = undefinedMessage;
+                } else {
+                    secondVal = parseFloat(displayTxt.innerHTML);
+                    result = operate(operator, firstVal, secondVal);
+                    displayTxt.innerHTML = result;
+                    n++;
+                }
             } else if (j === 3) {
                 if (b === 1) {
                     firstVal = result;
                     j--;
                 } else if (b === 2) {
-                    secondVal = parseFloat(displayTxt.innerHTML);
-                    result = operate(operator, firstVal, secondVal);
-                    displayTxt.innerHTML = result;
-                    j--;
+                    if (secondVal === 0 && operator === "/") {
+                      displayTxt.innerHTML = undefinedMessage;
+                    } else {
+                        secondVal = parseFloat(displayTxt.innerHTML);
+                        result = operate(operator, firstVal, secondVal);
+                        displayTxt.innerHTML = result;
+                        j--;
+                    }
                 } else {
+                    if (secondVal === 0 && operator === "/") {
+                        displayTxt.innerHTML = undefinedMessage;
+                    } else {
                     firstVal = result;
                     secondVal = parseFloat(displayTxt.innerHTML);
                     result = operate(operator, firstVal, secondVal);
                     displayTxt.innerHTML = result;
                     j--;
                     n++;
+                    }
                 }
             }
         });
@@ -166,10 +179,14 @@ let digitBtnClick = () => {
 let equalBtnClick = () => {
     equalBtn.addEventListener("click", () => {
         secondVal = parseFloat(displayTxt.innerHTML);
-        result = operate(operator, firstVal, secondVal);
-        displayTxt.innerHTML = result;
-        b++;
-        j++;
+        if (secondVal === 0 && operator === "/") {
+            displayTxt.innerHTML = undefinedMessage;
+        } else {
+            result = operate(operator, firstVal, secondVal);
+            displayTxt.innerHTML = result;
+            b++;
+            j++;
+        }
     });
 }
 
@@ -202,7 +219,7 @@ let toPercentage = () => {
         displayTxt.innerHTML = firstVal;
     });
 }
-rfrfr
+
 digitBtnClick();
 operatorBtnClick();
 equalBtnClick ();
