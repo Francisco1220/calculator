@@ -194,7 +194,6 @@ let negBtn = () => {
     });
 }
 
-// Working on percentage functionality
 let toPercentage = () => {
     makePerBtn.addEventListener("click", () => {
         let currentNum = parseFloat(displayTxt.innerHTML);
@@ -203,7 +202,7 @@ let toPercentage = () => {
         displayTxt.innerHTML = firstVal;
     });
 }
-
+rfrfr
 digitBtnClick();
 operatorBtnClick();
 equalBtnClick ();
