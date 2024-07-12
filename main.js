@@ -114,11 +114,15 @@ let operatorBtnClick = () => {
             if (j === 1) {
                 firstVal = parseFloat(displayTxt.innerHTML);
                 n++;
+                console.log(firstVal);
+                console.log(secondVal);
             } else if (j === 2) {
                 if (secondVal === 0 && operator === "/") {
                     displayTxt.innerHTML = undefinedMessage;
                 } else {
                     secondVal = parseFloat(displayTxt.innerHTML);
+                    console.log(firstVal);
+                    console.log(secondVal);
                     result = operate(operator, firstVal, secondVal);
                     displayTxt.innerHTML = result;
                     n++;
@@ -183,27 +187,25 @@ let digitBtnClick = () => {
 
 let equalBtnClick = () => {
     equalBtn.addEventListener("click", () => {
+        if (j === 1) {
+            secondVal = parseFloat(displayTxt.innerHTML);
+            result = operate(operator, firstVal, secondVal);
+            displayTxt.innerHTML = result;
+            b++;
+            j++;
+        } else if (j !== 1) {
+            firstVal = result;
+            secondVal = parseFloat(displayTxt.innerHTML);
+            result = operate(operator, firstVal, secondVal);
+            displayTxt.innerHTML = result;
+            b++;
+        }
         if (secondVal === 0 && operator === "/") {
             displayTxt.innerHTML = undefinedMessage;
-        } else {
-            if (j === 1) {
-                secondVal = parseFloat(displayTxt.innerHTML);
-                result = operate(operator, firstVal, secondVal);
-                displayTxt.innerHTML = result;
-                b++;
-                j++;
-            } else {
-                firstVal = result;
-                secondVal = parseFloat(displayTxt.innerHTML);
-                console.log(firstVal);
-                console.log(secondVal);
-                result = operate(operator, firstVal, secondVal);
-                displayTxt.innerHTML = result;
-                b++;
-            }
         }
     });
 }
+
 
 let clearBtnClick = () => {
     clearBtn.addEventListener("click", () => {
