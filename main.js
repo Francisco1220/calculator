@@ -183,14 +183,24 @@ let digitBtnClick = () => {
 
 let equalBtnClick = () => {
     equalBtn.addEventListener("click", () => {
-        secondVal = parseFloat(displayTxt.innerHTML);
         if (secondVal === 0 && operator === "/") {
             displayTxt.innerHTML = undefinedMessage;
         } else {
-            result = operate(operator, firstVal, secondVal);
-            displayTxt.innerHTML = result;
-            b++;
-            j++;
+            if (j === 1) {
+                secondVal = parseFloat(displayTxt.innerHTML);
+                result = operate(operator, firstVal, secondVal);
+                displayTxt.innerHTML = result;
+                b++;
+                j++;
+            } else {
+                firstVal = result;
+                secondVal = parseFloat(displayTxt.innerHTML);
+                console.log(firstVal);
+                console.log(secondVal);
+                result = operate(operator, firstVal, secondVal);
+                displayTxt.innerHTML = result;
+                b++;
+            }
         }
     });
 }
@@ -220,7 +230,6 @@ let negBtn = () => {
 let toPercentageBtn = () => {
     makePerBtn.addEventListener("click", () => {
         let currentNum = parseFloat(displayTxt.innerHTML);
-        console.log(currentNum);
         firstVal = currentNum / 100;
         displayTxt.innerHTML = firstVal;
     });
@@ -240,4 +249,4 @@ operatorBtnClick();
 equalBtnClick ();
 clearBtnClick();
 negBtn();
-toPercentageBtn ();
+toPercentageBtn();
