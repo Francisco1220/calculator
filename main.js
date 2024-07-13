@@ -114,10 +114,16 @@ let operatorBtnClick = () => {
             if (j === 1) {
                 firstVal = parseFloat(displayTxt.innerHTML);
                 n++;
+                firstOperator = operator = operatorBtn[i].innerHTML;
             } else if (j === 2) {
+                secondOperator = operatorBtn[i].innerHTML;
                 secondVal = parseFloat(displayTxt.innerHTML);
                 if (secondVal === 0 && operator === "/") {
                     displayTxt.innerHTML = undefinedMessage;
+                } else if (firstOperator !== secondOperator) {
+                    result = operate(firstOperator, firstVal, secondVal);
+                    displayTxt.innerHTML = result;
+                    n++;
                 } else {
                     result = operate(operator, firstVal, secondVal);
                     displayTxt.innerHTML = result;
@@ -137,11 +143,11 @@ let operatorBtnClick = () => {
                         j--;
                     }
                 } else {
+                    secondVal = parseFloat(displayTxt.innerHTML);
                     if (secondVal === 0 && operator === "/") {
                         displayTxt.innerHTML = undefinedMessage;
                     } else {
                     firstVal = result;
-                    secondVal = parseFloat(displayTxt.innerHTML);
                     result = operate(operator, firstVal, secondVal);
                     displayTxt.innerHTML = result;
                     j--;
