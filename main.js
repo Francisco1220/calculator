@@ -104,7 +104,7 @@ let secondVal;
 let n = 0;
 let b = 0;
 let d = 0;
-let undefinedMessage = "Self-destruct sequence inititated";
+let undefinedMessage = "Who's going to tell him...";
 
 let operatorBtnClick = () => {
     for (let i = 0; i < operatorBtn.length; i++) {
