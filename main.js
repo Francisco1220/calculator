@@ -114,15 +114,11 @@ let operatorBtnClick = () => {
             if (j === 1) {
                 firstVal = parseFloat(displayTxt.innerHTML);
                 n++;
-                console.log(firstVal);
-                console.log(secondVal);
             } else if (j === 2) {
+                secondVal = parseFloat(displayTxt.innerHTML);
                 if (secondVal === 0 && operator === "/") {
                     displayTxt.innerHTML = undefinedMessage;
                 } else {
-                    secondVal = parseFloat(displayTxt.innerHTML);
-                    console.log(firstVal);
-                    console.log(secondVal);
                     result = operate(operator, firstVal, secondVal);
                     displayTxt.innerHTML = result;
                     n++;
