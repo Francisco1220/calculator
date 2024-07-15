@@ -5,7 +5,7 @@
     box-sizing: border-box;
     height: 420px;
     padding: 2px;
-    background-color: rgb(196, 194, 63);
+    background-color: rgb(0, 43, 128);
     border-radius: 8px;
     padding: 8px;
 }
@@ -27,9 +27,10 @@ body {
     margin: 2px;
     margin-bottom: 6px;
     flex-basis: 25%;
-    background-color: white;
+    background-color: rgb(166, 166, 166);
     border-radius: 3px;
     font-size: 30px;
+    color: black;
 }
 
 .btn {
@@ -38,8 +39,13 @@ body {
     flex-grow: 1;
     border: none;
     font-size: 20px;
+    background-color: rgb(148, 148, 184);
 }
 
 #equalBtn {
     flex-grow: 7;
+}
+
+#clearBtn, #makeNegBtn, #makePerBtn, .operatorBtn {
+    background-color: rgb(92, 92, 138);
 }
