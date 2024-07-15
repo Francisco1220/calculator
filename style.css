@@ -1,9 +1,9 @@
 .container {
     display: flex;
     flex-direction: column;
-    width: 270px;
+    width: 310px;
     box-sizing: border-box;
-    height: 420px;
+    height: 460px;
     padding: 2px;
     background-color: rgb(0, 43, 128);
     border-radius: 8px;
@@ -15,7 +15,7 @@
     flex-basis: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 9px;
 }
 
 body {
