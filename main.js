@@ -78,20 +78,6 @@ for(let i = 0; i < btn.length; i++) {
     }
 }
 
-const changeColourBtn = function() {
-    for(let i = 0; i < btn.length; i++) {
-        if (btn[i].innerHTML === "AC" ||
-            btn[i].innerHTML === "+/-" ||
-            btn[i].innerHTML === "%" ||
-            btn[i].innerHTML === "x" ||
-            btn[i].innerHTML === "/" ||
-            btn[i].innerHTML === "+" ||
-            btn[i].innerHTML === "-") {
-            btn[i].style.backgroundColor = "rgb(255, 213, 153)";
-            }
-    }
-}
-
 const displayTxt = document.querySelector(".display");
 
 const digitBtn = document.querySelectorAll(".numBtn");
@@ -256,9 +242,20 @@ let decBtn = () => {
     });
 }
 
+let deleteBtn = () => {
+    backspaceBtn.addEventListener("click", () => {
+        if (b !== 1 && b !== 2) {
+                let string = displayTxt.innerHTML;
+                displayTxt.innerHTML = string.slice(0, -1);
+        }
+    });
+}
+
+
 digitBtnClick();
 operatorBtnClick();
-equalBtnClick ();
+equalBtnClick();
 clearBtnClick();
 negBtn();
 toPercentageBtn();
+deleteBtn();
