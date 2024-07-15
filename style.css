@@ -32,6 +32,8 @@ body {
     font-size: 30px;
     color: black;
     border: solid 2px black;
+    padding-left: 8px;
+    padding-top: 5px;
 }
 
 .btn {
