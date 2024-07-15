@@ -8,7 +8,7 @@
     background-color: rgb(0, 43, 128);
     border-radius: 8px;
     padding: 8px;
-    border: solid 4px black;
+    border: solid 6px rgb(61, 61, 92);
 }
 
 .buttons {
@@ -43,13 +43,12 @@ body {
     background-color: rgb(148, 148, 184);
 }
 
-#equalBtn {
-    flex-grow: 7;
-}
+
 
 #clearBtn,
 #makeNegBtn,
 #makePerBtn,
+#equalBtn,
 .operatorBtn {
     background-color: rgb(92, 92, 138);
 }
