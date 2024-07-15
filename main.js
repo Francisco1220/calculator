@@ -1,5 +1,3 @@
-// 3 variables for each: 1 for the first number. 1 for the operator. 1 for the second number
-
 let add = function(a,b) {
     return a + b;
 }
@@ -16,7 +14,6 @@ let divide = function(a, b) {
     return a / b;
 }
 
-// Takes an operator and 2 numbers and then calls one of the above functions on the numbers
 let operate = function(operator, first, second) {
     if (operator == "+") {
         let result = add(first, second);
@@ -63,6 +60,9 @@ for(let i = 0; i < btn.length; i++) {
     }
     if (btn[i].innerHTML === "%") {
         btn[i].setAttribute("id", "makePerBtn" )
+    }
+    if (btn[i].innerHTML === "del") {
+        btn[i].setAttribute("id", "backspaceBtn")
     }
     if (btn[i].innerHTML === "0" ||
         btn[i].innerHTML === "1" ||
