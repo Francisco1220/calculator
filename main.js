@@ -251,6 +251,23 @@ let deleteBtn = () => {
     });
 }
 
+let changeBgColour = () => {
+    for (let i = 0; i < btn.length; i++) {
+        btn[i].addEventListener("mouseover", () => {
+            btn[i].style.backgroundColor = "rgb(179, 0, 0)";
+        }); 
+        btn[i].addEventListener("mouseout", (e) => {
+            console.log(e.target.id);
+            if (e.target.className === "btn numBtn" || e.target.id === "backspaceBtn" || e.target.id === "makeDecBtn") {
+                btn[i].style.backgroundColor = "rgb(148, 148, 184)"
+            }
+            if (e.target.className === "btn operatorBtn" || e.target.id === "clearBtn" || e.target.id === "makeNegBtn" || e.target.id === "makePerBtn" || e.target.id === "equalBtn") {
+                btn[i].style.backgroundColor = "rgb(92, 92, 138)";
+            }
+        });
+    }
+}
+
 
 digitBtnClick();
 operatorBtnClick();
@@ -259,3 +276,4 @@ clearBtnClick();
 negBtn();
 toPercentageBtn();
 deleteBtn();
+changeBgColour();
