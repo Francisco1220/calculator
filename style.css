@@ -47,9 +47,9 @@ body {
     flex-grow: 7;
 }
 
-#clearBtn, 
-#makeNegBtn, 
-#makePerBtn, 
+#clearBtn,
+#makeNegBtn,
+#makePerBtn,
 .operatorBtn {
     background-color: rgb(92, 92, 138);
 }
