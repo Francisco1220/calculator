@@ -254,10 +254,9 @@ let deleteBtn = () => {
 let changeBgColour = () => {
     for (let i = 0; i < btn.length; i++) {
         btn[i].addEventListener("mouseover", () => {
-            btn[i].style.backgroundColor = "rgb(179, 0, 0)";
+            btn[i].style.backgroundColor = "rgba(255, 255, 255, 0.8)";
         }); 
         btn[i].addEventListener("mouseout", (e) => {
-            console.log(e.target.id);
             if (e.target.className === "btn numBtn" || e.target.id === "backspaceBtn" || e.target.id === "makeDecBtn") {
                 btn[i].style.backgroundColor = "rgb(148, 148, 184)"
             }
@@ -267,7 +266,6 @@ let changeBgColour = () => {
         });
     }
 }
-
 
 digitBtnClick();
 operatorBtnClick();
