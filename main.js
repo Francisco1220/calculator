@@ -111,12 +111,13 @@ let operatorBtnClick = () => {
                 if (secondVal === 0 && operator === "/") {
                     displayTxt.innerHTML = undefinedMessage;
                 } else if (firstOperator !== secondOperator) {
-                    result = operate(firstOperator, firstVal, secondVal);
+                    result = +operate(firstOperator, firstVal, secondVal).toFixed(16);
                     displayTxt.innerHTML = result;
                     n++;
                 } else {
-                    result = operate(operator, firstVal, secondVal);
-                    displayTxt.innerHTML = result;
+                    //
+                    result = +operate(operator, firstVal, secondVal).toFixed(16);
+                    displayTxt.innerHTML = result
                     n++;
                 }
             } else if (j === 3) {
@@ -130,7 +131,7 @@ let operatorBtnClick = () => {
                       displayTxt.innerHTML = undefinedMessage;
                     } else {
                         secondVal = parseFloat(displayTxt.innerHTML);
-                        result = operate(operator, firstVal, secondVal);
+                        result = +operate(operator, firstVal, secondVal).toFixed(16);
                         displayTxt.innerHTML = result;
                         j--;
                     }
@@ -140,13 +141,13 @@ let operatorBtnClick = () => {
                         displayTxt.innerHTML = undefinedMessage;
                     } else if (firstOperator !== secondOperator) {
                         firstVal = result;
-                        result = operate(firstOperator, firstVal, secondVal);
+                        result = +operate(firstOperator, firstVal, secondVal).toFixed(16);
                         displayTxt.innerHTML = result;
                         j--;
                         n++;
                     } else {
                         firstVal = result;
-                        result = operate(operator, firstVal, secondVal);
+                        result = +operate(operator, firstVal, secondVal).toFixed(16);
                         displayTxt.innerHTML = result;
                         j--;
                         n++;
@@ -189,14 +190,14 @@ let equalBtnClick = () => {
     equalBtn.addEventListener("click", () => {
         if (j === 1) {
             secondVal = parseFloat(displayTxt.innerHTML);
-            result = operate(operator, firstVal, secondVal);
+            result = +operate(operator, firstVal, secondVal).toFixed(16);
             displayTxt.innerHTML = result;
             b++;
             j++;
         } else if (j !== 1) {
             firstVal = result;
             secondVal = parseFloat(displayTxt.innerHTML);
-            result = operate(operator, firstVal, secondVal);
+            result = +operate(operator, firstVal, secondVal).toFixed(16);
             displayTxt.innerHTML = result;
             b++;
         }
