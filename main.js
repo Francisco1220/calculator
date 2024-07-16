@@ -91,6 +91,7 @@ let n = 0;
 let b = 0;
 let d = 0;
 let c = 0;
+let containsNeg = false;
 let decBtnPressed = false;
 let undefinedMessage = "Who's going to tell him...";
 
@@ -100,7 +101,6 @@ let operatorBtnClick = () => {
             operator = operatorBtn[i].innerHTML;
             j++;
             c = 0;
-            console.log(c);
             if (j === 1) {
                 firstVal = parseFloat(displayTxt.innerHTML);
                 n++;
@@ -166,6 +166,7 @@ let digitBtnClick = () => {
                 displayTxt.innerHTML += digitBtn[i].innerHTML;
                 n--;
                 d = 0;
+                containsNeg = false;
             } else if (b === 1) {
                 displayTxt.innerHTML = "";
                 displayTxt.innerHTML += digitBtn[i].innerHTML;
@@ -216,6 +217,7 @@ let clearBtnClick = () => {
         n = 0;
         d = 0;
         c = 0;
+        containsNeg = false;
         operator = 0;
         result = 0;
     });
@@ -223,9 +225,12 @@ let clearBtnClick = () => {
 
 let negBtn = () => {
     makeNegBtn.addEventListener("click", () => {
-        let currentNum = displayTxt.innerHTML;
-        let negSign = "-"
-        displayTxt.innerHTML = `${negSign}${currentNum}`
+        let negSign = "-";
+        if (displayTxt.innerHTML !== "" && containsNeg === false) {
+            currentNum = displayTxt.innerHTML;
+            displayTxt.innerHTML = `${negSign}${currentNum}`;
+            containsNeg = true;
+        }
     });
 }
 
