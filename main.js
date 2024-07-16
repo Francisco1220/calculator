@@ -90,6 +90,8 @@ let secondVal;
 let n = 0;
 let b = 0;
 let d = 0;
+let c = 0;
+let decBtnPressed = false;
 let undefinedMessage = "Who's going to tell him...";
 
 let operatorBtnClick = () => {
@@ -97,6 +99,8 @@ let operatorBtnClick = () => {
         operatorBtn[i].addEventListener("click", () => {
             operator = operatorBtn[i].innerHTML;
             j++;
+            c = 0;
+            console.log(c);
             if (j === 1) {
                 firstVal = parseFloat(displayTxt.innerHTML);
                 n++;
@@ -178,7 +182,6 @@ let digitBtnClick = () => {
             }
         });
     }
-    decBtn();
 }
 
 let equalBtnClick = () => {
@@ -212,6 +215,7 @@ let clearBtnClick = () => {
         b = 0;
         n = 0;
         d = 0;
+        c = 0;
         operator = 0;
         result = 0;
     });
@@ -235,8 +239,9 @@ let toPercentageBtn = () => {
 
 let decBtn = () => {
     makeDecBtn.addEventListener("click", () => {
-        d++;
-        if (d === 1) {
+        c++;
+        decBtnPressed = true;
+        if (c === 1) {
             displayTxt.innerHTML += ".";
         }
     });
@@ -247,6 +252,10 @@ let deleteBtn = () => {
         if (b !== 1 && b !== 2) {
                 let string = displayTxt.innerHTML;
                 displayTxt.innerHTML = string.slice(0, -1);
+            if (decBtnPressed === true) {
+                c--;
+                decBtnPressed = false;
+            }
         }
     });
 }
@@ -275,3 +284,4 @@ negBtn();
 toPercentageBtn();
 deleteBtn();
 changeBgColour();
+decBtn();
