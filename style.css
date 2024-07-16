@@ -1,21 +1,22 @@
 .container {
     display: flex;
     flex-direction: column;
-    width: 310px;
+    width: 320px;
     box-sizing: border-box;
-    height: 460px;
+    height: 500px;
     padding: 2px;
     background-color: rgb(0, 43, 128);
     border-radius: 8px;
     padding: 8px;
     border: solid 6px rgb(61, 61, 92);
+    margin-top: 40px;
 }
 
 .buttons {
     flex-basis: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 9px;
+    gap: 11px;
 }
 
 body {
