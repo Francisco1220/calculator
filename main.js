@@ -122,7 +122,6 @@ let operatorBtnClick = () => {
                 }
             } else if (j === 3) {
                 firstOperator = secondOperator
-                secondOperator = operator;
                 if (b === 1) {
                     firstVal = result;
                     j--;
@@ -136,6 +135,7 @@ let operatorBtnClick = () => {
                         j--;
                     }
                 } else {
+                    secondOperator = operator;
                     secondVal = parseFloat(displayTxt.innerHTML);
                     if (secondVal === 0 && operator === "/") {
                         displayTxt.innerHTML = undefinedMessage;
