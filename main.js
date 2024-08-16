@@ -95,10 +95,14 @@ let containsNeg = false;
 let decBtnPressed = false;
 let undefinedMessage = "Who's going to tell him...";
 
+const displayOperator = document.querySelector(".show-operator-clicked");
+
+
 let operatorBtnClick = () => {
     for (let i = 0; i < operatorBtn.length; i++) {
         operatorBtn[i].addEventListener("click", () => {
             operator = operatorBtn[i].innerHTML;
+            displayOperator.innerHTML = operator;
             j++;
             c = 0;
             if (j === 1) {
@@ -135,7 +139,6 @@ let operatorBtnClick = () => {
                         j--;
                     }
                 } else {
-                    secondOperator = operator;
                     secondVal = parseFloat(displayTxt.innerHTML);
                     if (secondVal === 0 && operator === "/") {
                         displayTxt.innerHTML = undefinedMessage;
@@ -188,6 +191,7 @@ let digitBtnClick = () => {
 
 let equalBtnClick = () => {
     equalBtn.addEventListener("click", () => {
+        displayOperator.innerHTML = "=";
         if (j === 1) {
             secondVal = parseFloat(displayTxt.innerHTML);
             result = +operate(operator, firstVal, secondVal).toFixed(16);
@@ -218,6 +222,7 @@ let clearBtnClick = () => {
         n = 0;
         d = 0;
         c = 0;
+        displayOperator.innerHTML = "";
         containsNeg = false;
         operator = 0;
         result = 0;
@@ -270,7 +275,7 @@ let changeBgColour = () => {
     for (let i = 0; i < btn.length; i++) {
         btn[i].addEventListener("mouseover", () => {
             btn[i].style.backgroundColor = "rgba(255, 255, 255, 0.8)";
-        }); 
+        });
         btn[i].addEventListener("mouseout", (e) => {
             if (e.target.className === "btn numBtn" || e.target.id === "backspaceBtn" || e.target.id === "makeDecBtn") {
                 btn[i].style.backgroundColor = "rgb(148, 148, 184)"
