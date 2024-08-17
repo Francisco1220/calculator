@@ -83,33 +83,31 @@ const displayTxt = document.querySelector(".display");
 const digitBtn = document.querySelectorAll(".numBtn");
 const operatorBtn = document.querySelectorAll(".operatorBtn");
 
-let j = 0;
+let operatorCounter = 0;
 let operator;
 let firstVal;
 let secondVal;
-let n = 0;
+let clearDisplay = 0;
 let b = 0;
-let d = 0;
-let c = 0;
+let decimalCounter = 0;
 let containsNeg = false;
 let decBtnPressed = false;
 let undefinedMessage = "Who's going to tell him...";
 
 const displayOperator = document.querySelector(".show-operator-clicked");
 
-
 let operatorBtnClick = () => {
     for (let i = 0; i < operatorBtn.length; i++) {
         operatorBtn[i].addEventListener("click", () => {
             operator = operatorBtn[i].innerHTML;
             displayOperator.innerHTML = operator;
-            j++;
-            c = 0;
-            if (j === 1) {
+            operatorCounter++;
+            decimalCounter = 0;
+            if (operatorCounter === 1) {
                 firstVal = parseFloat(displayTxt.innerHTML);
-                n++;
+                clearDisplay++;
                 firstOperator = operator;
-            } else if (j === 2) {
+            } else if (operatorCounter === 2) {
                 secondOperator = operatorBtn[i].innerHTML;
                 secondVal = parseFloat(displayTxt.innerHTML);
                 if (secondVal === 0 && operator === "/") {
@@ -117,18 +115,17 @@ let operatorBtnClick = () => {
                 } else if (firstOperator !== secondOperator) {
                     result = +operate(firstOperator, firstVal, secondVal).toFixed(16);
                     displayTxt.innerHTML = result;
-                    n++;
+                    clearDisplay++;
                 } else {
-                    //
                     result = +operate(operator, firstVal, secondVal).toFixed(16);
                     displayTxt.innerHTML = result
-                    n++;
+                    clearDisplay++;
                 }
-            } else if (j === 3) {
+            } else if (operatorCounter === 3) {
                 firstOperator = secondOperator
                 if (b === 1) {
                     firstVal = result;
-                    j--;
+                    operatorCounter--;
                 } else if (b === 2) {
                     if (secondVal === 0 && operator === "/") {
                       displayTxt.innerHTML = undefinedMessage;
@@ -136,7 +133,7 @@ let operatorBtnClick = () => {
                         secondVal = parseFloat(displayTxt.innerHTML);
                         result = +operate(operator, firstVal, secondVal).toFixed(16);
                         displayTxt.innerHTML = result;
-                        j--;
+                        operatorCounter--;
                     }
                 } else {
                     secondVal = parseFloat(displayTxt.innerHTML);
@@ -146,14 +143,14 @@ let operatorBtnClick = () => {
                         firstVal = result;
                         result = +operate(firstOperator, firstVal, secondVal).toFixed(16);
                         displayTxt.innerHTML = result;
-                        j--;
-                        n++;
+                        operatorCounter--;
+                        clearDisplay++;
                     } else {
                         firstVal = result;
                         result = +operate(operator, firstVal, secondVal).toFixed(16);
                         displayTxt.innerHTML = result;
-                        j--;
-                        n++;
+                        operatorCounter--;
+                        clearDisplay++;
                     }
                 }
             }
@@ -165,23 +162,20 @@ let operatorBtnClick = () => {
 let digitBtnClick = () => {
     for (let i = 0; i < digitBtn.length; i++) {
         digitBtn[i].addEventListener("click", () => {
-            if (n === 1) {
+            if (clearDisplay === 1) {
                 displayTxt.innerHTML = "";
                 displayTxt.innerHTML += digitBtn[i].innerHTML;
-                n--;
-                d = 0;
+                clearDisplay--;
                 containsNeg = false;
             } else if (b === 1) {
                 displayTxt.innerHTML = "";
                 displayTxt.innerHTML += digitBtn[i].innerHTML;
                 b--;
-                j--;
-                d = 0;
+                operatorCounter--;
             } else if (b === 2) {
                 displayTxt.innerHTML = "";
                 displayTxt.innerHTML += digitBtn[i].innerHTML;
                 b = 0;
-                d = 0;
             } else {
                 displayTxt.innerHTML += digitBtn[i].innerHTML;
             }
@@ -192,13 +186,13 @@ let digitBtnClick = () => {
 let equalBtnClick = () => {
     equalBtn.addEventListener("click", () => {
         displayOperator.innerHTML = "=";
-        if (j === 1) {
+        if (operatorCounter === 1) {
             secondVal = parseFloat(displayTxt.innerHTML);
             result = +operate(operator, firstVal, secondVal).toFixed(16);
             displayTxt.innerHTML = result;
             b++;
-            j++;
-        } else if (j !== 1) {
+            operatorCounter++;
+        } else if (operatorCounter !== 1) {
             firstVal = result;
             secondVal = parseFloat(displayTxt.innerHTML);
             result = +operate(operator, firstVal, secondVal).toFixed(16);
@@ -217,11 +211,10 @@ let clearBtnClick = () => {
         displayTxt.innerHTML = "";
         firstVal = 0;
         secondVal = 0;
-        j = 0;
+        operatorCounter = 0;
         b = 0;
-        n = 0;
-        d = 0;
-        c = 0;
+        clearDisplay = 0;
+        decimalCounter = 0;
         displayOperator.innerHTML = "";
         containsNeg = false;
         operator = 0;
@@ -250,9 +243,9 @@ let toPercentageBtn = () => {
 
 let decBtn = () => {
     makeDecBtn.addEventListener("click", () => {
-        c++;
+        decimalCounter++;
         decBtnPressed = true;
-        if (c === 1) {
+        if (decimalCounter === 1) {
             displayTxt.innerHTML += ".";
         }
     });
@@ -264,7 +257,7 @@ let deleteBtn = () => {
                 let string = displayTxt.innerHTML;
                 displayTxt.innerHTML = string.slice(0, -1);
             if (decBtnPressed === true) {
-                c--;
+                decimalCounter--;
                 decBtnPressed = false;
             }
         }
