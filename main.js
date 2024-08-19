@@ -114,6 +114,7 @@ let operatorBtnClick = () => {
                     displayTxt.innerHTML = undefinedMessage;
                 } else if (firstOperator !== secondOperator) {
                     result = +operate(firstOperator, firstVal, secondVal).toFixed(16);
+                    firstOperator = operatorBtn[i].innerHTML;
                     displayTxt.innerHTML = result;
                     clearDisplay++;
                 } else {
@@ -137,6 +138,7 @@ let operatorBtnClick = () => {
                     }
                 } else {
                     secondVal = parseFloat(displayTxt.innerHTML);
+                    secondOperator = operatorBtn[i].innerHTML;
                     if (secondVal === 0 && operator === "/") {
                         displayTxt.innerHTML = undefinedMessage;
                     } else if (firstOperator !== secondOperator) {
