@@ -62,12 +62,3 @@ body {
 body {
     background-color: rgb(217, 217, 217);
 }
-
-.show-operator-clicked {
-    position: absolute;
-    right: 590px;
-    top: 120px;
-    font-size: 30px;
-    color: rgb(0, 43, 128);
-    font-weight: bold;
-}

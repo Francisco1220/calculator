@@ -94,13 +94,11 @@ let containsNeg = false;
 let decBtnPressed = false;
 let undefinedMessage = "Who's going to tell him...";
 
-const displayOperator = document.querySelector(".show-operator-clicked");
 
 let operatorBtnClick = () => {
     for (let i = 0; i < operatorBtn.length; i++) {
         operatorBtn[i].addEventListener("click", () => {
             operator = operatorBtn[i].innerHTML;
-            displayOperator.innerHTML = operator;
             operatorCounter++;
             decimalCounter = 0;
             if (operatorCounter === 1) {
@@ -187,7 +185,6 @@ let digitBtnClick = () => {
 
 let equalBtnClick = () => {
     equalBtn.addEventListener("click", () => {
-        displayOperator.innerHTML = "=";
         if (operatorCounter === 1) {
             secondVal = parseFloat(displayTxt.innerHTML);
             result = +operate(operator, firstVal, secondVal).toFixed(16);
@@ -217,7 +214,6 @@ let clearBtnClick = () => {
         b = 0;
         clearDisplay = 0;
         decimalCounter = 0;
-        displayOperator.innerHTML = "";
         containsNeg = false;
         operator = 0;
         result = 0;
